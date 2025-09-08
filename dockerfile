@@ -25,7 +25,7 @@ COPY --chown=nonroot:nonroot . .
 # App port
 EXPOSE 3000
 
-# Default: run the API
-ENTRYPOINT ["node", "app.js"]
-# To run the seeder, override at runtime:
-# docker run --rm --env MONGO_URI=... --entrypoint node <image> seed.js
+# Default: run the API (distroless provides node entrypoint)
+CMD ["app.js"]
+# To run the seeder, override the command at runtime:
+# docker run --rm --env MONGO_URI=... <image> seed.js
