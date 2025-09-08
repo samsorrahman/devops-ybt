@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Install only what's needed for runtime (no dev deps)
 COPY package*.json ./
-RUN npm ci --omit=dev && npm cache clean --force
+RUN npm install --omit=dev && npm cache clean --force
 
 # Copy app source (no .env)
 COPY . .
@@ -26,6 +26,6 @@ COPY --chown=nonroot:nonroot . .
 EXPOSE 3000
 
 # Default: run the API
-CMD ["app.js"]
+ENTRYPOINT ["node", "app.js"]
 # To run the seeder, override at runtime:
 # docker run --rm --env MONGO_URI=... --entrypoint node <image> seed.js

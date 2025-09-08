@@ -36,3 +36,4 @@ async function seedData () {
     process.exit(1)
   }
 }
+
