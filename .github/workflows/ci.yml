@@ -28,7 +28,10 @@ jobs:
       - name: Install dependencies
         run: npm install --omit=dev --no-audit --no-fund
 
-      - name: Run standard lint
+      - name: Auto-fix lint issues
+        run: npx --yes standard --fix "**/*.js"
+
+      - name: Verify lint
         run: npx --yes standard "**/*.js"
 
   sca:
