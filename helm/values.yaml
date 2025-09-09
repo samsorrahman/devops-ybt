@@ -1,0 +1,28 @@
+image:
+  repository: docker.io/samsorrahman/devops-ybt
+  tag: latest
+  pullPolicy: IfNotPresent
+
+namespace: ybt
+
+mongo:
+  username: admin
+  password: adminpassword
+  database: ybt
+  storage: 1Gi
+
+resources:
+  app:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 256Mi
+  mongo:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi

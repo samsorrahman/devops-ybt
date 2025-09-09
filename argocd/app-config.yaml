@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ybt-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:samsorrahman/devops-ybt.git
+    targetRevision: main
+    path: helm
+    helm:
+      valueFiles: []
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ybt
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
