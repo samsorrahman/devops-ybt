@@ -23,6 +23,8 @@ spec:
     spec:
       securityContext:
         runAsNonRoot: true
+        runAsUser: 65532
+        runAsGroup: 65532
       containers:
         - name: app
           image: docker.io/samsorrahman/devops-ybt:latest
@@ -52,6 +54,9 @@ spec:
               port: 3000
             initialDelaySeconds: 10
             periodSeconds: 20
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
           resources:
             requests:
               cpu: "100m"

@@ -23,6 +23,8 @@ spec:
     spec:
       securityContext:
         runAsNonRoot: true
+        runAsUser: 65532
+        runAsGroup: 65532
       containers:
         - name: app
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
@@ -52,6 +54,9 @@ spec:
               port: 3000
             initialDelaySeconds: 10
             periodSeconds: 20
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
           resources:
             requests:
               cpu: {{ .Values.resources.app.requests.cpu | quote }}
@@ -86,6 +91,10 @@ spec:
   template:
     spec:
       restartPolicy: OnFailure
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        runAsGroup: 65532
       containers:
         - name: seed
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
