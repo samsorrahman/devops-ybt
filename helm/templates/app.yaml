@@ -99,6 +99,7 @@ spec:
         - name: seed
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: ["/nodejs/bin/node"]
           args: ["seed.js"]
           env:
             - name: MONGO_URI

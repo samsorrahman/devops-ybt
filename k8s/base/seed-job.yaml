@@ -13,6 +13,7 @@ spec:
         - name: seed
           image: docker.io/samsorrahman/devops-ybt:latest
           imagePullPolicy: IfNotPresent
+          command: ["/nodejs/bin/node"]
           args: ["seed.js"]
           env:
             - name: MONGO_URI
