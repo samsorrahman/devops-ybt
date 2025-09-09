@@ -1,0 +1,5 @@
+apiVersion: v2
+name: monitoring
+version: 0.1.0
+appVersion: "1.0.0"
+description: Monitoring stack with Prometheus, Grafana, and exporters

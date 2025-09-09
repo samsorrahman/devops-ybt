@@ -70,11 +70,20 @@ kind: Service
 metadata:
   name: ybt-app
   namespace: {{ .Values.namespace }}
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "3000"
+    prometheus.io/path: "/metrics"
 spec:
   selector:
     app: ybt-app
   ports:
-    - port: 80
+    - name: http
+      port: 80
+      targetPort: 3000
+      protocol: TCP
+    - name: metrics
+      port: 3000
       targetPort: 3000
       protocol: TCP
   type: ClusterIP
