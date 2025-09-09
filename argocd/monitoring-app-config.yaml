@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: git@github.com:samsorrahman/devops-ybt.git
+    repoURL: https://github.com/samsorrahman/devops-ybt.git
     targetRevision: main
     path: monitoring
     helm:
