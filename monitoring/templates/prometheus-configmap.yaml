@@ -24,22 +24,22 @@ data:
           - targets: ['localhost:9090']
 
       - job_name: 'ybt-app'
-        static_configs:
-          - targets: ['ybt-app.ybt.svc.cluster.local:3000']
         metrics_path: '/metrics'
         scrape_interval: 10s
+        static_configs:
+          - targets: ['ybt-app.ybt.svc.cluster.local:80']
 
       - job_name: 'node-exporter'
         static_configs:
-          - targets: ['node-exporter:9100']
+          - targets: ['node-exporter.monitoring.svc.cluster.local:9100']
 
       - job_name: 'mongodb-exporter'
         static_configs:
-          - targets: ['mongodb-exporter:9216']
+          - targets: ['mongodb-exporter.monitoring.svc.cluster.local:9216']
 
       - job_name: 'kube-state-metrics'
         static_configs:
-          - targets: ['kube-state-metrics:8080']
+          - targets: ['kube-state-metrics.monitoring.svc.cluster.local:8080']
 
   alert_rules.yml: |
     groups:
