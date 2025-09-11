@@ -74,7 +74,12 @@ spec:
   selector:
     app: ybt-app
   ports:
-    - port: 8081
+    - name: http
+      port: 80
       targetPort: 3000
+      protocol: TCP
+    - name: metrics
+      port: 8081  # Expose the metrics on port 8081
+      targetPort: 3000  # Map it to container port 3000
       protocol: TCP
   type: ClusterIP
