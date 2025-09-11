@@ -74,7 +74,7 @@ spec:
   selector:
     app: ybt-app
   ports:
-    - port: 80
+    - port: 8081
       targetPort: 3000
       protocol: TCP
   type: ClusterIP
