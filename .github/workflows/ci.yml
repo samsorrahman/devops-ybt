@@ -100,7 +100,3 @@ jobs:
           ignore-unfixed: true
           severity: CRITICAL,HIGH,MEDIUM
           exit-code: '0'
-
- 
-          
-
