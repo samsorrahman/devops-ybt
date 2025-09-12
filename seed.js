@@ -22,7 +22,8 @@ const seedItems = [
   { name: 'Banana', quantity: 30 },
   { name: 'Orange', quantity: 20 },
   { name: 'Mango', quantity: 15 },
-  { name: 'Kiwi', quantity: 10 }
+  { name: 'Kiwi', quantity: 10 },
+  { name: 'Pineapple', quantity: 5 },
 ]
 
 async function seedData () {
