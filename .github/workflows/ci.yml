@@ -116,3 +116,8 @@ jobs:
           image: ${{ env.DOCKER_IMAGE }}:latest
           only-severities: critical,high
           exit-code: true
+          summary: true
+          format: json
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          
+
