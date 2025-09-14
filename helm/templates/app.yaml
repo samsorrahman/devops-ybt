@@ -91,13 +91,18 @@ spec:
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: seed-data
+  name: seed-data-{{ randAlphaNum 5 | lower }}
   namespace: {{ .Values.namespace }}
   annotations:
     helm.sh/hook: post-install,post-upgrade
     helm.sh/hook-delete-policy: before-hook-creation,hook-succeeded
+    helm.sh/hook-weight: "1"
 spec:
+  backoffLimit: 3
   template:
+    metadata:
+      annotations:
+        timestamp: {{ now | date "20060102150405"}}
     spec:
       restartPolicy: OnFailure
       securityContext:
@@ -107,7 +112,7 @@ spec:
       containers:
         - name: seed
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullPolicy: Always
           command: ["/nodejs/bin/node"]
           args: ["seed.js"]
           env:
