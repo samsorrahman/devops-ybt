@@ -1,6 +1,6 @@
 image:
   repository: docker.io/samsorrahman/devops-ybt
-  tag: "" # Will be overridden by ArgoCD or set dynamically
+  tag: latest
   pullPolicy: Always # Changed from IfNotPresent to ensure fresh pulls
 
 

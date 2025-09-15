@@ -102,7 +102,7 @@ spec:
   template:
     metadata:
       annotations:
-        timestamp: {{ now | date "20060102150405"}}
+        timestamp: "{{ now | date "20060102150405" }}"
     spec:
       restartPolicy: OnFailure
       securityContext:
