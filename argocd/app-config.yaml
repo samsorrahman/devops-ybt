@@ -11,11 +11,6 @@ spec:
     path: helm
     helm:
       valueFiles: []
-      parameters:
-        - name: "image.tag"
-          value: "latest"
-        - name: "image.pullPolicy"
-          value: "Always"
   destination:
     server: https://kubernetes.default.svc
     namespace: ybt
